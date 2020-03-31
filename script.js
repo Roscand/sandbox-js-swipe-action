@@ -2,7 +2,10 @@ const container = document.querySelector('.container');
 const items = document.querySelectorAll('.item');
 const item = document.querySelector('.item-text');
 
-let log;
+let clientX, offsetX, posX, targetItem;
+let dragActive = false;
+const dragAmount = 75;
+const dragActiveZone = 20;
 
 // Init
 startEventListeners();
@@ -14,11 +17,6 @@ function startEventListeners() {
     container.addEventListener('mouseup', stopDragging);
     container.addEventListener('mouseleave', stopDragging);
 }
-
-let dragActive = false;
-let clientX, offsetX, posX, targetItem;
-const dragAmount = 75;
-const dragActiveZone = 20;
 
 // Functions
 function startDragging(e) {
